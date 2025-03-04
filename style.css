@@ -348,7 +348,7 @@ section{
     flex: 1;
     background: #fff;
     border: 1px solid #ddd;
-    border-radius: 2rem;
+    border-radius: 1rem;
     width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -359,12 +359,21 @@ section{
     align-items: center;
 }
 
+.project-container .project-card:nth-child(2) h3 {
+    margin-top: 8rem; /* Lägg till extra marginal ovanför rubriken */
+}
+
+.project-container .project-card:nth-child(2) p {
+    margin-top: 1rem; /* Lägg till extra marginal ovanför texten */
+}
+
 .project-pic{
     width: 100%;
     object-fit: cover;
 }
 
 .project-card h3{
+    margin-top: 2rem;
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -386,7 +395,7 @@ section{
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s, transform 0.3s;
-    margin-top: 18px; /* Push the button to the bottom */
+    margin-top: 1rem;
 }
 
 .github-btn i {
@@ -423,7 +432,7 @@ section{
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid;
+   
 }
 
 .contact-item{
