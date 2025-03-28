@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
+import projectPortfolio from '../assets/projectPortfolio.png';
+import projectTransport from '../assets/projectTransport.png'; 
 
 const Projects = () => {
   // Skapa en array av projekt
@@ -7,18 +9,18 @@ const Projects = () => {
     {
       title: 'Personal Portfolio',
       description: 'A modern and responsive portfolio website built with JavaScript, React, and TailwindCSS. This project showcases my skills, previous work, and experience, featuring a projects section, blog, and contact form. Designed to provide a clean and intuitive user experience.',
-      image: '/test.png',  // Endast en bild per projekt
-      githubLink: 'https://github.com/ditt-användarnamn/projekt-1',
+      image: projectPortfolio,  // Endast en bild per projekt
+      githubLink: 'https://github.com/fukriiboii/portfolio',
     },
     {
       title: 'Transport App',
       description: 'Admin can list transports and users can book transports. Users can sign up and login, and then book transports, which are stored in the user\'s booking list. CRUD operations. Built with JavaScript, React, Express. Database built with Sequelize and MySQL.',
-      image: '/project2-image.png',  // Endast en bild per projekt
-      githubLink: 'https://github.com/ditt-användarnamn/projekt-2',
+      image: projectTransport,
+      githubLink: 'https://github.com/fukriiboii/Transport-System',
     },
     {
-      title: 'Projekt 2',
-      description: 'Beskrivning av projekt 2. Detta projekt handlar om att skapa en webbapplikation för att hantera och visa information på ett användarvänligt sätt.',
+      title: 'Projekt 3',
+      description: 'Description',
       image: '/project2-image.png',  // Endast en bild per projekt
       githubLink: 'https://github.com/ditt-användarnamn/projekt-2',
     },

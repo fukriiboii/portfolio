@@ -59,7 +59,7 @@ const Contact = () => {
             href="https://github.com/fukriiboii?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-lg text-gray-700 hover:text-gray-900 transition"
+            className="flex items-center gap-2 text-lg text-gray-700 hover:text-gray-500 transition"
           >
             <FaGithub size={24} /> GitHub
           </a>

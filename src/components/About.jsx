@@ -1,4 +1,5 @@
 import React from "react";
+import aboutPic from '../assets/aboutPic.jpg'; 
 
 const About = () => {
   return (
@@ -7,8 +8,8 @@ const About = () => {
         
         {/* Bild på dig */}
         <img
-          src="/aboutPic.jpg"
-          alt="Fahri Kuzey"
+          src={aboutPic}
+          alt="About pic"
           className="w-48 h-48 sm:w-58 sm:h-58 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-lg object-cover shadow-lg"
         />
 

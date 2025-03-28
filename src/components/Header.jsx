@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <header
-      className={`bg-[#e2e0e0] text-gray p-4 fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`bg-stone-200 text-gray-800 p-4 fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled ? 'transform -translate-y-full' : ''
       }`}
     >
@@ -35,7 +35,7 @@ const Header = () => {
         <img src={logo} alt="logo" className="h-16 w-16" />
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 focus:outline-none"
+          className="md:hidden p-4 focus:outline-none"
         >
           ☰
         </button>
