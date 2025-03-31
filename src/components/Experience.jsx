@@ -19,7 +19,7 @@ const Experience = () => {
                     {/* Frontend Experience */}
                     <div className='border border-gray-300 p-6 rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out w-full md:w-1/2 mb-6'>
                         <h3 className='text-3xl font-semibold mb-4 text-cyan-600'>Frontend Development</h3>
-                        <p className='text-gray-700 mb-4'>Jag har erfarenhet av att bygga moderna applikationer med modernt verktyg.</p>
+                        <p className='text-gray-700 mb-4'>I have experience in building modern applications with modern tools like:</p>
                         <div className='flex flex-wrap gap-4'>
 
                             <div className='flex flex-col items-center'>
@@ -59,7 +59,7 @@ const Experience = () => {
                     {/* Backend Experience */}
                     <div className='border border-gray-300 p-6 rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out w-full md:w-1/2 mb-6'>
                         <h3 className='text-3xl font-semibold mb-4 text-cyan-600'>Backend Development</h3>
-                        <p className='text-gray-700 mb-4'>Jag arbetar med att bygga stabila och effektiva backend-lösningar med:</p>
+                        <p className='text-gray-700 mb-4'>I work on building stable and efficient backend solutions with:</p>
                         <div className='flex flex-wrap gap-4'>
 
                             <div className='flex flex-col items-center'>
@@ -105,6 +105,7 @@ const Experience = () => {
                            
 
                         </div>
+                        
                     </div>
 
                 </div>
