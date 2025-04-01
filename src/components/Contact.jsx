@@ -56,7 +56,7 @@ const Contact = () => {
             <FaLinkedin size={24} /> LinkedIn
           </a>
           <a
-            href="https://github.com/fukriiboii?tab=repositories"
+            href="https://github.com/fukriiboii/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-lg text-gray-700 hover:text-gray-500 transition"
