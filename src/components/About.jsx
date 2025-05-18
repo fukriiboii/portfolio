@@ -1,5 +1,7 @@
 import React from "react";
 import aboutPic from '../assets/aboutPic.jpg'; 
+import examensbevis from '../assets/Examensbevis.pdf';
+import examensBetyg from '../assets/Examensbetyg.pdf';
 
 const About = () => {
   return (
@@ -40,7 +42,24 @@ const About = () => {
                 <li>
                   <h4 className="text-xl font-semibold text-gray-700">Higher Vocational Diploma in Agile Java Development</h4>
                   <p className="text-gray-600 mt-1">Edugrade | Gävle</p>
-                  <p className="text-gray-500 italic">2023 - 2025</p>
+                  <p className="text-gray-500 italic">2023 Sep - 2025 May</p>
+                  <a
+                    href={examensbevis}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold inline-block mt-4 mr-4 px-6 py-2 bg-cyan-600 text-white rounded-full hover:bg-cyan-800 transition duration-200"
+                  >
+                    Show Diploma
+                  </a>
+
+                  <a 
+                    href={examensBetyg}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold inline-block mt-4 px-6 py-2 bg-cyan-600 text-white rounded-full hover:bg-cyan-800 transition duration-200"
+                  >
+                    Show Grades
+                  </a>
                 </li>
               </ul>
             </div>
