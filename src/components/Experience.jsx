@@ -2,6 +2,7 @@ import React from 'react'
 import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaDatabase, FaJava, FaGitAlt, FaGit, FaGithub } from "react-icons/fa";
 import { SiTailwindcss, SiSpringboot, SiMysql, SiMongodb, SiJabber, SiJavascript, SiExpress, SiGit, SiPostman, SiDocker, SiJunit5, SiJira } from "react-icons/si";
 import { MdApi } from "react-icons/md";
+import hibernateLogo from '../assets/hibernate.svg';
 
 const Experience = () => {
     return (
@@ -100,6 +101,16 @@ const Experience = () => {
                             <div className='flex flex-col items-center'>
                                 <SiPostman className='text-orange-500 text-4xl'/>
                                 <p className='text-sm text-gray-600'>Postman</p>
+                            </div>
+
+                            <div className='flex flex-col items-center'>
+                                <SiJunit5 className='text-green-500 text-4xl'/>
+                                <p className='text-sm text-gray-600'>JUnit5</p> 
+                            </div>
+                            
+                            <div className='flex flex-col items-center'>
+                                <img src={hibernateLogo} alt="Hibernate" className='w-9 h-9'/>
+                                <p className='text-sm text-gray-600'>Hibernate</p>
                             </div>
 
                            
