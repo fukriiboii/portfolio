@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import React from 'react';
-import profilePic from '../assets/profilePic.png'; 
+import profilePic from '../assets/pp.jpg'; 
 import resume from '../assets/Resume.pdf';
 
 const Hero = () => {
@@ -40,7 +40,7 @@ const Hero = () => {
             >
                 Contact 
             </a>
-
+            
           </div>
         </div>
       </div>

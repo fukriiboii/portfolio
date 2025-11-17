@@ -68,11 +68,19 @@ const About = () => {
             <div className="border border-gray-300 p-6 rounded-lg shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out w-full md:w-1/2 mt-6 md:mt-0">
               <h3 className="text-2xl font-semibold mb-4 text-cyan-600">Experience</h3>
               <ul className="space-y-4">
+
+                <li>
+                  <h4 className="text-xl font-semibold text-gray-700">Founder & Fullstack Developer</h4>
+                  <p className="text-gray-600 mt-1">ApexIt | Stockholm</p>
+                  <p className="text-gray-500 italic">2025 Nov - Present</p>
+                </li>
+                
                 <li>
                   <h4 className="text-xl font-semibold text-gray-700">Frontend Developer Intern</h4>
                   <p className="text-gray-600 mt-1">The Knowledge Formula | Stockholm</p>
                   <p className="text-gray-500 italic">2024 Oct - 2025 March</p>
                 </li>
+                
               </ul>
             </div>
 

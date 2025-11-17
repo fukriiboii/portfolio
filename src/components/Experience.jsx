@@ -8,7 +8,7 @@ const Experience = () => {
     return (
         <section id='experience' className='bg-white py-16 px-6'>
 
-            <div className='max-w-6xl mx-auto text-center'>
+            <div className='max-w-7xl mx-auto text-center'>
 
                 {/* Titel & Divider */}
                 <p className='text-lg text-gray-500 uppercase tracking-wider'>What I Excel At</p>

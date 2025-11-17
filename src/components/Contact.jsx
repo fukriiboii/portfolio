@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import emailjs from 'emailjs-com';
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhone } from 'react-icons/fa';
 
@@ -9,6 +9,8 @@ const Contact = () => {
     message: '',
   });
   const [isLoading, setIsLoading] = useState(false);
+
+  const formRef = useRef(); // ✅ LÄGG TILL REF
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,16 +25,21 @@ const Contact = () => {
     setIsLoading(true);
 
     emailjs
-      .sendForm('service_b117i0n', 'template_e4letwn', e.target, 'z4rvFy_XnK60Orjdu')
+      .sendForm(
+        'service_b117i0n',          // ✔ ditt service ID
+        'template_e4letwn',        // ✔ ditt template ID
+        formRef.current,           // ✔ viktigt!!! använd ref
+        'z4rvFy_XnK60Orjdu'        // ✔ public key
+      )
       .then(
-        (result) => {
+        () => {
           alert('Your message has been sent!');
           setFormData({ name: '', email: '', message: '' });
           setIsLoading(false);
         },
         (error) => {
+          console.error('EmailJS error:', error);
           alert('Failed to send message. Please try again.');
-          console.error(error);
           setIsLoading(false);
         }
       );
@@ -45,7 +52,7 @@ const Contact = () => {
         <h2 className="text-4xl font-bold text-gray-900 mt-2">Contact Me</h2>
         <div className="w-20 h-1 bg-blue-500 mx-auto mt-3 mb-8"></div>
 
-        {/* Social Media & Contact Info */}
+        {/* Socials */}
         <div className="mb-8 flex flex-col md:flex-row justify-center items-center gap-6">
           <a
             href="https://www.linkedin.com/in/fahri-kuzey-3540a7177/"
@@ -55,6 +62,7 @@ const Contact = () => {
           >
             <FaLinkedin size={24} /> LinkedIn
           </a>
+
           <a
             href="https://github.com/fukriiboii/"
             target="_blank"
@@ -63,20 +71,22 @@ const Contact = () => {
           >
             <FaGithub size={24} /> GitHub
           </a>
+
           <a
             href="mailto:Fahrikuzey@hotmail.com"
             className="flex items-center gap-2 text-lg text-gray-700 hover:text-red-600 transition"
           >
             <FaEnvelope size={24} /> Fahrikuzey@hotmail.com
           </a>
+
           <span className="flex items-center gap-2 text-lg text-gray-700">
-            <FaPhone size={24} /> +46 73 397 64 25 
+            <FaPhone size={24} /> +46 73 397 64 25
           </span>
         </div>
 
-        {/* Kontaktformulär */}
+        {/* Contact Form */}
         <div className="bg-white p-8 rounded-lg shadow-lg">
-          <form onSubmit={handleSubmit}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="flex flex-col">
                 <label htmlFor="name" className="text-lg font-medium text-gray-700">
@@ -112,7 +122,9 @@ const Contact = () => {
             </div>
 
             <div className="flex flex-col mt-6">
-              <label htmlFor="message" className="text-lg font-medium text-gray-700">Message</label>
+              <label htmlFor="message" className="text-lg font-medium text-gray-700">
+                Message
+              </label>
               <textarea
                 id="message"
                 name="message"
