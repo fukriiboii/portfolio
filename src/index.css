@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
 
-body {
+
+html, body {
   background-color: #efeded;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden ;
+  scroll-behavior: smooth;
 }
 
 /* 3D Carousel Styles */

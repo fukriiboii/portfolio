@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { FaGithub, FaChevronLeft, FaChevronRight, FaTimes, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import p1 from '../assets/p1.png';
 import p2 from '../assets/p2.png';
 import p3 from '../assets/p3.png';
-
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,7 +11,8 @@ const Projects = () => {
   const projects = [
     {
       title: 'Traffic School System',
-      description: 'A modular traffic school platform that provides quizzes and educational content for users to learn traffic rules and regulations. Includes frontend in React and multiple backend services in Spring Boot.',
+      description:
+        'A modular traffic school platform that provides quizzes and educational content for users to learn traffic rules and regulations. Includes frontend in React and multiple backend services in Spring Boot.',
       image: p3,
       githubLink: 'https://github.com/TrafficSchool-System',
       liveLink: null,
@@ -23,7 +23,7 @@ const Projects = () => {
         'Quiz creation, management, and session tracking',
         'RESTful API communication between frontend and backend',
         'Modular backend architecture with DTOs',
-        'CORS enabled for seamless integration'
+        'CORS enabled for seamless integration',
       ],
     },
     {
@@ -33,16 +33,11 @@ const Projects = () => {
       githubLink: 'https://github.com/fukriiboii/Transport-System',
       liveLink: null,
       tech: ['React', 'Express', 'MySQL', 'Sequelize', 'Node.js'],
-      features: [
-        'User authentication',
-        'Admin dashboard',
-        'Booking system',
-        'Full CRUD support',
-      ],
+      features: ['User authentication', 'Admin dashboard', 'Booking system', 'Full CRUD support'],
     },
     {
-     title: 'Personal Portfolio',
-      description:'A modern and responsive portfolio website built with JavaScript, React, and TailwindCSS.',
+      title: 'Personal Portfolio',
+      description: 'A modern and responsive portfolio website built with JavaScript, React, and TailwindCSS.',
       image: p1,
       githubLink: 'https://github.com/fukriiboii/portfolio',
       liveLink: null,
@@ -51,13 +46,9 @@ const Projects = () => {
     },
   ];
 
-  const nextProject = () => {
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
-  };
+  const nextProject = () => setCurrentIndex((prev) => (prev + 1) % projects.length);
 
-  const prevProject = () => {
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-  };
+  const prevProject = () => setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
 
   const getCardPosition = (index) => {
     const diff = index - currentIndex;
@@ -71,91 +62,95 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-gray-100">
+    <section id="projects" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-gray-100 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
-
+        {/* HEADER */}
         <div className="text-center mb-8">
           <p className="text-lg text-gray-500 uppercase tracking-wider">See some of</p>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2">My project's</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mt-2">My Project's</h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto mt-3 mb-8"></div>
         </div>
 
-        {/* 3D CAROUSEL */}
-        <div
-          className="relative h-[500px] md:h-[600px] flex items-center justify-center"
-          style={{ perspective: '1000px' }}
-        >
-          <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
-            {projects.map((project, index) => {
-              const position = getCardPosition(index);
-              const isCenter = position === 0;
+        {/* 3D CAROUSEL WRAPPER FIX */}
+        <div className="w-full overflow-x-hidden">
+          <div
+            className="relative h-[500px] md:h-[600px] flex items-center justify-center"
+            style={{ perspective: '1000px', overflow: 'visible' }}
+          >
+            <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+              {projects.map((project, index) => {
+                const position = getCardPosition(index);
+                const isCenter = position === 0;
 
-              return (
-                <div
-                  key={index}
-                  className="absolute top-1/2 left-1/2 transition-all duration-700 ease-out cursor-pointer"
-                  style={{
-                    transform: `
-                      translate(-50%, -50%)
-                      translateX(${position * 280}px)
-                      translateZ(${isCenter ? '0px' : '-250px'})
-                      scale(${isCenter ? 1 : 0.7})
-                      rotateY(${position * -15}deg)
-                    `,
-                    opacity: Math.abs(position) > 2 ? 0 : isCenter ? 1 : 0.6,
-                    zIndex: isCenter ? 50 : 30 - Math.abs(position),
-                    pointerEvents: Math.abs(position) > 2 ? 'none' : 'auto',
-                  }}
-                  onClick={() => isCenter && setSelectedProject(project)}
-                >
+                return (
                   <div
-                    className={`bg-white rounded-2xl shadow-2xl overflow-hidden w-[280px] md:w-[350px] transition-all duration-300 ${
-                      isCenter ? 'ring-4 ring-blue-500 ring-offset-4' : ''
-                    }`}
+                    key={index}
+                    className="absolute top-1/2 left-1/2 transition-all duration-700 ease-out cursor-pointer"
+                    style={{
+                      transform: `
+                        translate(-50%, -50%)
+                        translateX(${position * 280}px)
+                        translateZ(${isCenter ? '0px' : '-250px'})
+                        scale(${isCenter ? 1 : 0.7})
+                        rotateY(${position * -15}deg)
+                      `,
+                      opacity: Math.abs(position) > 2 ? 0 : isCenter ? 1 : 0.6,
+                      zIndex: isCenter ? 50 : 30 - Math.abs(position),
+                      pointerEvents: Math.abs(position) > 2 ? 'none' : 'auto',
+                    }}
+                    onClick={() => isCenter && setSelectedProject(project)}
                   >
-                    <div className="relative h-48 md:h-56 bg-gradient-to-br from-blue-50 to-purple-50">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-contain p-4" />
-                    </div>
+                    <div
+                      className={`bg-white rounded-2xl shadow-2xl overflow-hidden w-[260px] md:w-[350px] transition-all duration-300 ${
+                        isCenter ? 'ring-4 ring-blue-500 ring-offset-4' : ''
+                      }`}
+                    >
+                      {/* IMAGE */}
+                      <div className="relative h-44 md:h-56 bg-gradient-to-br from-blue-50 to-purple-50">
+                        <img src={project.image} alt={project.title} className="w-full h-full object-contain p-4" />
+                      </div>
 
-                    <div className="p-5">
-                      <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {project.description.substring(0, 80)}...
-                      </p>
+                      {/* CONTENT */}
+                      <div className="p-5">
+                        <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                          {project.description.substring(0, 80)}...
+                        </p>
 
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.slice(0, 3).map((t, i) => (
-                          <span key={i} className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
-                            {t}
-                          </span>
-                        ))}
-                        {project.tech.length > 3 && (
-                          <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
-                            +{project.tech.length - 3}
-                          </span>
-                        )}
+                        <div className="flex flex-wrap gap-2">
+                          {project.tech.slice(0, 3).map((t, i) => (
+                            <span key={i} className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                              {t}
+                            </span>
+                          ))}
+                          {project.tech.length > 3 && (
+                            <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                              +{project.tech.length - 3}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
+            {/* ARROWS */}
+            <button
+              onClick={prevProject}
+              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-500 text-gray-800 hover:text-white p-4 rounded-full shadow-lg transition"
+            >
+              <FaChevronLeft className="text-xl" />
+            </button>
+
+            <button
+              onClick={nextProject}
+              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-500 text-gray-800 hover:text-white p-4 rounded-full shadow-lg transition"
+            >
+              <FaChevronRight className="text-xl" />
+            </button>
           </div>
-
-          {/* ARROWS */}
-          <button
-            onClick={prevProject}
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-500 text-gray-800 hover:text-white p-4 rounded-full shadow-lg transition"
-          >
-            <FaChevronLeft className="text-xl" />
-          </button>
-
-          <button
-            onClick={nextProject}
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-white hover:bg-blue-500 text-gray-800 hover:text-white p-4 rounded-full shadow-lg transition"
-          >
-            <FaChevronRight className="text-xl" />
-          </button>
         </div>
 
         {/* INDICATORS */}
@@ -164,9 +159,7 @@ const Projects = () => {
             <button
               key={i}
               onClick={() => setCurrentIndex(i)}
-              className={`rounded-full transition-all ${
-                i === currentIndex ? 'w-8 h-3 bg-blue-500' : 'w-3 h-3 bg-gray-300'
-              }`}
+              className={`rounded-full transition-all ${i === currentIndex ? 'w-8 h-3 bg-blue-500' : 'w-3 h-3 bg-gray-300'}`}
             ></button>
           ))}
         </div>
@@ -182,19 +175,12 @@ const Projects = () => {
             className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 bg-white p-2 rounded-full shadow"
-            >
+            <button onClick={() => setSelectedProject(null)} className="absolute top-4 right-4 bg-white p-2 rounded-full shadow">
               <FaTimes className="text-2xl" />
             </button>
 
             <div className="relative h-64 md:h-96 bg-gradient-to-br from-blue-50 to-purple-50">
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                className="w-full h-full object-contain p-8"
-              />
+              <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-contain p-8" />
             </div>
 
             <div className="p-8">
