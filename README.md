@@ -16,7 +16,7 @@ This is my personal portfolio website showcasing my projects, skills, and experi
 ## 🖥️ Features
 
 - Responsive design for mobile, tablet, and desktop  
-- Showcases my key projects with links to GitHub and live demos  
+- Showcases my key projects with links to GitHub and live videos  
 - Skills section with badges for technologies used  
 - Contact section with LinkedIn, GitHub, and email links  
 - Clean and modern UI using Tailwind CSS
