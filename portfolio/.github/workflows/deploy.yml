@@ -1,217 +1,57 @@
-# Namnet på GitHub Actions-workflowen.
-# Detta är namnet du ser under fliken "Actions" på GitHub.
 name: Deploy to GitHub Pages
 
-
-# Bestämmer NÄR workflowen ska köras.
-#
-# Här säger vi:
-# "Kör workflowen varje gång något pushas till main."
 on:
   push:
     branches:
       - main
-  
   workflow_dispatch:
 
-
-# Bestämmer vilka rättigheter GitHub Actions har.
 permissions:
-
-  # Workflowen får läsa repositoryts innehåll.
-  # Behövs för att kunna hämta vår kod.
   contents: read
-
-  # Workflowen får publicera till GitHub Pages.
   pages: write
-
-  # Behövs för GitHubs säkra autentisering vid deployment.
   id-token: write
 
-
-# Hanterar flera deployments som körs samtidigt.
 concurrency:
-
-  # Alla GitHub Pages deployments tillhör samma grupp.
   group: pages
-
-  # Om en ny deployment startar medan en gammal fortfarande kör,
-  # avbryts den gamla.
-  #
-  # Exempel:
-  # Push A → deployment startar
-  # Push B → gamla deploymenten avbryts
-  #            och den nya körs istället
   cancel-in-progress: true
 
-
-# Här definierar vi vilka jobb GitHub Actions ska utföra.
 jobs:
-
-
-  # ============================================================
-  # BUILD JOB
-  # ============================================================
-  #
-  # Detta jobb:
-  # 1. Hämtar vår kod
-  # 2. Installerar Node
-  # 3. Installerar dependencies
-  # 4. Bygger React/Vite-projektet
-  # 5. Sparar den färdiga dist-mappen
-  #
   build:
-
-    # GitHub startar en tillfällig Ubuntu Linux-maskin
-    # för att köra detta jobb.
     runs-on: ubuntu-latest
 
     steps:
-
-      # --------------------------------------------------------
-      # STEG 1: Hämta repositoryts kod
-      # --------------------------------------------------------
-      #
-      # GitHub Actions-maskinen börjar tom.
-      # checkout hämtar vårt repository så att workflowen
-      # kan arbeta med vår kod.
       - name: Checkout
         uses: actions/checkout@v4
 
-
-      # --------------------------------------------------------
-      # STEG 2: Installera Node.js
-      # --------------------------------------------------------
-      #
-      # Vår React/Vite-portfolio behöver Node.js för att
-      # kunna installera packages och bygga projektet.
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-
-          # Vi använder Node.js version 22.
           node-version: 22
-
-          # Aktiverar npm cache för snabbare builds.
           cache: npm
 
-
-      # --------------------------------------------------------
-      # STEG 3: Förbered GitHub Pages
-      # --------------------------------------------------------
-      #
-      # Konfigurerar GitHub Pages för deploymenten.
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-
-      # --------------------------------------------------------
-      # STEG 4: Installera dependencies
-      # --------------------------------------------------------
-      #
-      # npm ci installerar dependencies från package-lock.json.
-      #
-      # Exempel:
-      # React
-      # React DOM
-      # Vite
-      # Tailwind
-      # Lucide
-      # osv.
       - name: Install dependencies
         run: npm ci
 
-
-      # --------------------------------------------------------
-      # STEG 5: Bygg projektet
-      # --------------------------------------------------------
-      #
-      # Detta kör "npm run build" från package.json.
-      #
-      # Vite tar vår source code:
-      #
-      # src/
-      #
-      # och bygger den till:
-      #
-      # dist/
-      #
-      # dist/ är den färdiga versionen av vår webbplats
-      # som ska publiceras.
       - name: Build
         run: npm run build
 
-
-      # --------------------------------------------------------
-      # STEG 6: Spara build-resultatet
-      # --------------------------------------------------------
-      #
-      # Vi tar dist-mappen och gör den till ett artifact.
-      #
-      # Deploy-jobbet kommer senare att använda detta
-      # artifact för att publicera webbplatsen.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-
-          # Det är den färdiga dist-mappen som ska publiceras.
           path: ./dist
 
-
-  # ============================================================
-  # DEPLOY JOB
-  # ============================================================
-  #
-  # Detta jobb publicerar resultatet från build-jobbet
-  # till GitHub Pages.
   deploy:
-
-    # GitHub Pages environment.
-    #
-    # page_url kommer från deployment-steget längre ner.
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-
-    # Även deployment-jobbet körs på en Ubuntu-maskin.
     runs-on: ubuntu-latest
-
-
-    # VIKTIGT:
-    #
-    # Deploy får INTE köras förrän build-jobbet är klart.
-    #
-    # Om build lyckas:
-    #
-    # build ✅
-    #   ↓
-    # deploy ✅
-    #
-    # Om build misslyckas:
-    #
-    # build ❌
-    #   ↓
-    # deploy körs inte
     needs: build
 
-
     steps:
-
-      # --------------------------------------------------------
-      # STEG 1: Deploya till GitHub Pages
-      # --------------------------------------------------------
-      #
-      # Tar artifactet från build-jobbet och publicerar
-      # det på GitHub Pages.
       - name: Deploy to GitHub Pages
-
-        # Ger detta steg namnet "deployment".
-        #
-        # Det används ovan när vi skriver:
-        #
-        # steps.deployment.outputs.page_url
-        #
         id: deployment
-
         uses: actions/deploy-pages@v4
