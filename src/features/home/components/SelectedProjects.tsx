@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Container from "../../../shared/components/Container"
 import ProjectCard from "../../../shared/components/ProjectCard"
 import Section from "../../../shared/components/Section"
@@ -16,9 +17,9 @@ function SelectedProjects() {
 
         <div className="space-y-[clamp(4rem,8vw,10rem)]">
           {projects.map((project) => (
-            <a
+            <Link
               key={project.slug}
-              href={`/projects/${project.slug}`}
+              to={`/projects/${project.slug}`}
               className="block"
             >
               <ProjectCard
@@ -28,7 +29,7 @@ function SelectedProjects() {
                 technologies={project.technologies}
                 image={project.images[0]}
               />
-            </a>
+            </Link>
           ))}
         </div>
       </Container>

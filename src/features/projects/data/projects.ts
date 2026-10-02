@@ -1,3 +1,5 @@
+const imagePath = (path: string) => `${import.meta.env.BASE_URL}${path}`
+
 export interface Project {
   slug: string
   number: string
@@ -39,10 +41,10 @@ export const projects: Project[] = [
       "Azure",
     ],
     images: [
-      "/public/projects/drivelot/Drivelot-1.png",
-      "/public/projects/drivelot/Drivelot-2.png",
-      "/public/projects/drivelot/Drivelot-3.png",
-      "/public/projects/drivelot/Drivelot-4.png",
+      imagePath("projects/drivelot/Drivelot-1.png"),
+      imagePath("projects/drivelot/Drivelot-2.png"),
+      imagePath("projects/drivelot/Drivelot-3.png"),
+      imagePath("projects/drivelot/Drivelot-4.png"),
     ],
     features: [
       {
@@ -87,6 +89,7 @@ export const projects: Project[] = [
         "The result is a scalable SaaS foundation designed to support multiple driving schools while keeping each school's data and workflows separated.",
     },
   },
+
   {
     slug: "sveabilar",
     number: "02",
@@ -105,10 +108,10 @@ export const projects: Project[] = [
       "Docker",
     ],
     images: [
-      "/public/projects/sveabilar/Sveabilar-1.png",
-      "/public/projects/sveabilar/Sveabilar-2.png",
-      "/public/projects/sveabilar/Sveabilar-3.png",
-      "/public/projects/sveabilar/Sveabilar-4.png",
+      imagePath("projects/sveabilar/Sveabilar-1.png"),
+      imagePath("projects/sveabilar/Sveabilar-2.png"),
+      imagePath("projects/sveabilar/Sveabilar-3.png"),
+      imagePath("projects/sveabilar/Sveabilar-4.png"),
     ],
     features: [
       {
@@ -153,6 +156,7 @@ export const projects: Project[] = [
         "The result is a complete booking platform that connects the customer experience with the company's internal booking workflow and reduces the need for manual booking management.",
     },
   },
+
   {
     slug: "traffic-school",
     number: "03",
@@ -161,7 +165,6 @@ export const projects: Project[] = [
     status: "Completed",
     description:
       "A complete platform for a driving school, built to manage students, payments and theory training in one place.",
-
     technologies: [
       "Java",
       "Spring Boot",
@@ -172,27 +175,22 @@ export const projects: Project[] = [
       "Docker",
     ],
     images: [
-      "/public/projects/trafficschool/Trafficschool-1.png",
-      "/public/projects/trafficschool/Trafficschool-2.png",
-      "/public/projects/trafficschool/Trafficschool-3.png",
-      "/public/projects/trafficschool/Trafficschool-4.png",
-      "/public/projects/trafficschool/Trafficschool-3.png",
-      "/public/projects/trafficschool/Trafficschool-4.png",
-      "/public/projects/trafficschool/Trafficschool-5.png",
-      "/public/projects/trafficschool/Trafficschool-6.png",
-      "/public/projects/trafficschool/Trafficschool-7.png",
-      "/public/projects/trafficschool/Trafficschool-8.png",
-      "/public/projects/trafficschool/Trafficschool-9.png",
-      "/public/projects/trafficschool/Trafficschool-10.png",
-      "/public/projects/trafficschool/Trafficschool-11.png",
-      "/public/projects/trafficschool/Trafficschool-12.png",
-      "/public/projects/trafficschool/Trafficschool-13.png",
-      "/public/projects/trafficschool/Trafficschool-14.png",
-      "/public/projects/trafficschool/Trafficschool-15.png",
-      "/public/projects/trafficschool/Trafficschool-16.png",
-
-
-
+      imagePath("projects/trafficschool/Trafficschool-1.png"),
+      imagePath("projects/trafficschool/Trafficschool-2.png"),
+      imagePath("projects/trafficschool/Trafficschool-3.png"),
+      imagePath("projects/trafficschool/Trafficschool-4.png"),
+      imagePath("projects/trafficschool/Trafficschool-5.png"),
+      imagePath("projects/trafficschool/Trafficschool-6.png"),
+      imagePath("projects/trafficschool/Trafficschool-7.png"),
+      imagePath("projects/trafficschool/Trafficschool-8.png"),
+      imagePath("projects/trafficschool/Trafficschool-9.png"),
+      imagePath("projects/trafficschool/Trafficschool-10.png"),
+      imagePath("projects/trafficschool/Trafficschool-11.png"),
+      imagePath("projects/trafficschool/Trafficschool-12.png"),
+      imagePath("projects/trafficschool/Trafficschool-13.png"),
+      imagePath("projects/trafficschool/Trafficschool-14.png"),
+      imagePath("projects/trafficschool/Trafficschool-15.png"),
+      imagePath("projects/trafficschool/Trafficschool-16.png"),
     ],
     features: [
       {
@@ -203,7 +201,7 @@ export const projects: Project[] = [
       {
         title: "Theory training",
         description:
-          "Students can practice theory questions by choosing specific categories based on what they want to study",
+          "Students can practice theory questions by choosing specific categories based on what they want to study.",
       },
       {
         title: "Theory tests",

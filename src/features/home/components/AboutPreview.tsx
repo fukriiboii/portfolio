@@ -24,7 +24,7 @@ function AboutPreview() {
             </p>
 
             <a
-              href="/about"
+              href="/portfolio/about"
               className="group mt-[clamp(1.75rem,2.5vw,2.5rem)] inline-flex items-center text-[clamp(0.8rem,0.8vw,1rem)] font-medium text-(--color-text-primary)"
             >
               More about me
