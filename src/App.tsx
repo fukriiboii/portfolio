@@ -81,7 +81,7 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio">
       <Navbar />
 
       <AnimatedRoutes />
