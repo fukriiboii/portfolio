@@ -82,7 +82,7 @@ function Navbar() {
               </button>
 
               <a
-                href="/public/resume.pdf"
+                href="/portfolio/public/resume.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full border border-(--color-border) px-[clamp(1rem,1.2vw,1.5rem)] py-[clamp(0.5rem,0.6vw,0.75rem)] !text-[clamp(0.8rem,0.8vw,1rem)] !text-(--color-green-light) transition-all duration-300 hover:border-(--color-accent) hover:bg-(--color-accent) hover:!text-white"
@@ -162,7 +162,7 @@ function Navbar() {
                   </button>
 
                   <a
-                    href="/public/resume.pdf"
+                    href="/portfolio/public/resume.pdf"
                     target="_blank"
                     rel="noreferrer"
                     onClick={closeMenu}
