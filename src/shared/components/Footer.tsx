@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import ContactMe from "./ContactMe"
 import Container from "./Container"
 import FKLogo from "./FKLogo"
 
 function Footer() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const closeToSection = (sectionId: string) => {
-    if (window.location.pathname !== "/") {
-      window.location.href = `/#${sectionId}`
+    if (location.pathname !== "/") {
+      navigate(`/#${sectionId}`)
       return
     }
 
@@ -28,7 +31,7 @@ function Footer() {
               className="group inline-flex items-baseline font-heading text-[clamp(1.5rem,1.8vw,2rem)] font-bold tracking-[-0.07em]"
               aria-label="FK. Home"
             >
-              <FKLogo className="w-10 h-10"/>
+              <FKLogo className="h-10 w-10" />
 
               <span className="ml-0.5 text-(--color-accent) transition-transform duration-300 group-hover:translate-x-0.5">
                 .
@@ -76,7 +79,7 @@ function Footer() {
             </button>
 
             <a
-              href="/portfolio/public/resume.pdf"
+              href={`${import.meta.env.BASE_URL}Resume.pdf`}
               target="_blank"
               rel="noreferrer"
               className="w-fit rounded-full border border-(--color-border) px-[clamp(1rem,1.2vw,1.5rem)] py-[clamp(0.5rem,0.6vw,0.75rem)] text-[clamp(0.8rem,0.8vw,1rem)] !text-(--color-green-light) transition-all duration-300 hover:!border-(--color-accent) hover:!bg-(--color-accent) hover:!text-white"
@@ -107,3 +110,4 @@ function Footer() {
 }
 
 export default Footer
+

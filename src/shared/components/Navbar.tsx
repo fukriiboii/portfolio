@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 import Container from "./Container"
 import FKLogo from "./FKLogo"
@@ -8,6 +8,7 @@ import FKLogo from "./FKLogo"
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navigate = useNavigate()
+  const location = useLocation()
 
   const closeMenu = () => {
     setIsMenuOpen(false)
@@ -16,7 +17,7 @@ function Navbar() {
   const handleSectionClick = (sectionId: string) => {
     closeMenu()
 
-    if (window.location.pathname !== "/") {
+    if (location.pathname !== "/") {
       navigate(`/#${sectionId}`)
       return
     }
@@ -48,7 +49,7 @@ function Navbar() {
               className="group inline-flex items-baseline font-heading text-[clamp(1.5rem,1.8vw,2rem)] font-bold tracking-[-0.07em]"
               aria-label="FK. Home"
             >
-              <FKLogo className="w-10 h-10" />
+              <FKLogo className="h-10 w-10" />
 
               <span className="ml-0.5 !text-(--color-accent) transition-transform duration-300 group-hover:translate-x-0.5">
                 .
@@ -82,7 +83,7 @@ function Navbar() {
               </button>
 
               <a
-                href="/portfolio/public/resume.pdf"
+                href={`${import.meta.env.BASE_URL}Resume.pdf`}
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full border border-(--color-border) px-[clamp(1rem,1.2vw,1.5rem)] py-[clamp(0.5rem,0.6vw,0.75rem)] !text-[clamp(0.8rem,0.8vw,1rem)] !text-(--color-green-light) transition-all duration-300 hover:border-(--color-accent) hover:bg-(--color-accent) hover:!text-white"
@@ -162,7 +163,7 @@ function Navbar() {
                   </button>
 
                   <a
-                    href="/portfolio/public/resume.pdf"
+                    href={`${import.meta.env.BASE_URL}resume.pdf`}
                     target="_blank"
                     rel="noreferrer"
                     onClick={closeMenu}
